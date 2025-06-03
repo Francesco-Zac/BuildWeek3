@@ -121,9 +121,9 @@ const Sidebar = () => {
                     <div className="profile-photo-placeholder">{initials}</div>
                   )}
                   <div className="d-flex flex-column">
-                    <p>
+                    <h2 className="custom-h2">
                       {friend.name} {friend.surname}
-                    </p>
+                    </h2>
                     <p>{friend.title}</p>
                     <Button variant="primary" className="btn btn-outline-primary rounded-pill custom-max-width-btn">
                       Aggiungi
