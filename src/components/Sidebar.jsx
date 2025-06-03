@@ -12,8 +12,8 @@ const Sidebar = () => {
 
   const API_BASE = "https://striveschool-api.herokuapp.com/api/profile";
   const TOKEN =
-    // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZDViNWIxMGJmMDAwMTVjZjIyYjYiLCJpYXQiOjE3NDg5NDg0MDYsImV4cCI6MTc1MDE1ODAwNn0.OdtalgFyC7p5edoHwc0t6DdVkCcrtVHFhaxzCp1Cq5E";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
+  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZDViNWIxMGJmMDAwMTVjZjIyYjYiLCJpYXQiOjE3NDg5NDg0MDYsImV4cCI6MTc1MDE1ODAwNn0.OdtalgFyC7p5edoHwc0t6DdVkCcrtVHFhaxzCp1Cq5E";
   useEffect(() => {
     fetchProfile();
     fetchFriends();
