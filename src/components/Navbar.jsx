@@ -6,7 +6,7 @@ import './Navbar.css'
 const Navbar = () => {
   return (
     <nav className="navbar navbar-light bg-white shadow-sm ">
-      <div className="d-flex align-items-center w-100 justify-content-between">
+      <div className="d-flex align-items-center w-100 justify-content-center">
         
         <div className="d-flex  gap-2 px-5">
           <a href="/">
