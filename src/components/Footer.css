@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+
+.footer-links a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+
+.contenuti {
+  display: flex;
+  flex-direction: row;
+}
