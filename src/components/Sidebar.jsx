@@ -102,7 +102,7 @@ const Sidebar = () => {
         </div>
         <div className="cards">
           {profile.image ? (
-            <Image className="img-fluid rounded-circle" src={profile.image} alt="Profile" />
+            <Image className="img-fluid rounded-circle custom-img-side-profile" src={profile.image} alt="Profile" />
           ) : (
             <div className="profile-photo-placeholder">{initials}</div>
           )}
@@ -125,7 +125,9 @@ const Sidebar = () => {
                       {friend.name} {friend.surname}
                     </p>
                     <p>{friend.title}</p>
-                    <Button variant="info">Aggiungi</Button>
+                    <Button variant="primary" className="btn btn-outline-primary rounded-pill ">
+                      Aggiungi
+                    </Button>
                   </div>
                 </div>
               );
