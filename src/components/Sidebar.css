@@ -20,3 +20,7 @@
 .custom-img-side-profile {
   width: 50%;
 }
+
+.custom-max-width-btn {
+  max-width: 100px;
+}

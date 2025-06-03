@@ -125,7 +125,7 @@ const Sidebar = () => {
                       {friend.name} {friend.surname}
                     </p>
                     <p>{friend.title}</p>
-                    <Button variant="primary" className="btn btn-outline-primary rounded-pill ">
+                    <Button variant="primary" className="btn btn-outline-primary rounded-pill custom-max-width-btn">
                       Aggiungi
                     </Button>
                   </div>
