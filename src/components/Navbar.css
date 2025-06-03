@@ -12,6 +12,77 @@ svg {
     z-index: 2;
 }
 
-.custom-margin-left {
-  margin-right: 80px;
+.dropdown-menu {
+  min-width: 650px;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .dropdown-menu {
+    min-width: 100% !important;
+  }
+
+  .form-control {
+    width: 200px !important;
+  }
+
+  .navbar .text-center svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar .text-center p {
+    font-size: 0.75rem;
+  }
+
+  .gap-4 {
+    gap: 1rem !important;
+  }
+
+  .gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-control {
+    width: 160px !important;
+  }
+
+  .custom-margin-left {
+    padding-left: 0 !important;
+  }
+
+  .navbar .text-center {
+    flex: 1 1 30%;
+    text-align: center;
+  }
+
+  .d-flex.flex-wrap {
+    justify-content: center;
+  }
+
+  .navbar .text-center p {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-control {
+    display: none;
+  }
+
+
+  .dropdown-menu {
+    padding: 1rem;
+  }
+
+  .navbar .text-center {
+    flex: 1 1 45%;
+  }
+
+  .dropdown .btn,
+  .dropdown .btn-link {
+    font-size: 0.8rem;
+  }
 }

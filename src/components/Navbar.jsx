@@ -6,8 +6,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-white shadow-sm ">
-      <div className="d-flex align-items-center w-100 justify-content-center">
+    <nav className="navbar navbar-light bg-white shadow-sm px-2">
+      <div className=" d-flex align-items-center w-100 justify-content-center">
         
         <div className="d-flex  gap-2 px-5 custom-margin-left">
           <a href="/">
@@ -18,15 +18,20 @@ const Navbar = () => {
             
             />
           </a>
-          <input
-            type="text"
-            className="form-control form-control-sm"
-            placeholder="🔍 Title, skill or company"
-            style={{ height:"40px", width: "280px", backgroundColor: "#eef3f8", border: "none" }}
-          />
+
+
+ <div className='search-wrapper d-flex align-items-center'>
+  <i className="bi bi-search d-block d-sm-none me-2" style={{ fontSize: '1.2rem' }}></i>
+  <input
+    type="text"
+    className="form-control d-none d-sm-block"
+    placeholder="🔍 Title, skill, or company"
+  />
+          </div>
         </div>
 
 
+        
         <div className="d-flex align-items-center gap-4 ">
           <div className="text-center">
             <svg
@@ -121,7 +126,7 @@ const Navbar = () => {
     </svg>
   </button>
 
-  {/* Dropdown menu */}
+  {/*menu */}
   <ul className="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="meDropdown">
     <li>
       <a className="dropdown-item" href="/profile">
