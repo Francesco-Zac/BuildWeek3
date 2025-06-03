@@ -146,7 +146,7 @@ const MainSection = () => {
               </h1>
               <p className="profile-headline">{profile.title || "Studente presso EPICODE Institute of Technology"}</p>
               <p className="profile-location">
-                {profile.area || "Rende, Calabria, Italia"} · <span className="contact-info">Informazioni di contatto</span>
+                {profile.area || "Rende, Calabria, Italia"} · <span className="contact-info">Informazioni di contatto </span>
               </p>
               <div className="availability">
                 <span className="available-badge">Disponibile per</span>
