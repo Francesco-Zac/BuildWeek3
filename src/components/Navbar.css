@@ -2,15 +2,16 @@ svg {
     color: grey;
 }
 
-p{
-    font-size:x-small;
-}
 
 .navbar{
-    height: 60px;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 2;
+}
+
+.custom-margin-left {
+  margin-right: 80px;
 }
