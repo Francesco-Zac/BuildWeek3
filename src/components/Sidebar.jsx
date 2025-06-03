@@ -120,7 +120,7 @@ const Sidebar = () => {
                   ) : (
                     <div className="profile-photo-placeholder">{initials}</div>
                   )}
-                  <div>
+                  <div className="d-flex flex-column">
                     <p>
                       {friend.name} {friend.surname}
                     </p>
