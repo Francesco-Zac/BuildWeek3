@@ -1,0 +1,26 @@
+/* .side-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+} */
+
+.cards {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.custom-side-img {
+  width: 40px;
+  height: 40px;
+}
+
+.custom-img-side-profile {
+  width: 50%;
+}
+
+.custom-max-width-btn {
+  max-width: 100px;
+}
