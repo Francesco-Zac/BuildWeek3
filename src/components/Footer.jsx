@@ -26,21 +26,21 @@ function Footer() {
         <div className="footer-links">
           <div>
             <div className="contenuti">
-              <i class="bi bi-question-circle-fill"></i>
+              <i className="bi bi-question-circle-fill"></i>
               <h6>Domande?</h6>
             </div>
             <p>Visita il nostro centro assistenza</p>
           </div>
           <div>
             <div className="contenuti">
-              <i class="bi bi-gear-fill"></i>
+              <i className="bi bi-gear-fill"></i>
               <h6>Gestisci il tuo account e la tua Privacy</h6>
             </div>
             <p>Vai alle impostazioni</p>
           </div>
           <div>
             <div className="contenuti">
-              <i class="bi bi-shield-shaded"></i>
+              <i className="bi bi-shield-shaded"></i>
               <h6>Trasparenza sui contenuti consigliati</h6>
             </div>
             <p>Scopri di più sui contenuti consigliati</p>

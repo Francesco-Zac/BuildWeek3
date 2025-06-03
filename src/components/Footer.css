@@ -5,18 +5,33 @@
 
 .footer-links {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
   flex-direction: column;
   margin-right: 2rem;
+  text-align: left;
 }
 
-.footer-links a {
+.footer-links a,
+p {
   color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
+  font-size: 12px;
 }
 
 .contenuti {
   display: flex;
   flex-direction: row;
+}
+
+i {
+  margin-right: 10px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+.footer-links p {
+  margin-left: 25px;
 }
