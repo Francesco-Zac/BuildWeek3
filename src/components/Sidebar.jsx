@@ -83,10 +83,6 @@ const Sidebar = () => {
 
   if (!profile) return null;
 
-  if (friends) {
-    console.log(friends);
-  }
-
   const initials = `${profile.name?.charAt(0) || ""}${profile.surname?.charAt(0) || ""}`.toUpperCase();
 
   return (
@@ -114,7 +110,7 @@ const Sidebar = () => {
           {friends &&
             friends.map((friend) => {
               return (
-                <div key={friend.id} className="d-flex justify-content-start my-2 ms-2 card-friends">
+                <div key={friend._id} className="d-flex justify-content-start my-2 ms-2 card-friends">
                   {friend.image ? (
                     <Image className="img-fluid rounded-circle custom-side-img" src={friend.image} alt="profile" />
                   ) : (
