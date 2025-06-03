@@ -1,21 +1,42 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Image } from "react-bootstrap";
 
 const Sidebar = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [friends, setFriends] = useState(null);
 
   //use params con react router
+
   const API_BASE = "https://striveschool-api.herokuapp.com/api/profile";
   const TOKEN =
     // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODE0NzljZTFjMjUwNDAwMTUxYWI2NGUiLCJpYXQiOjE3NDg5NDUzNTYsImV4cCI6MTc1MDE1NDk1Nn0.nu6nlNSP9jzD2zdfF4NSXWlUy5LILhJiw9Cul_lI3Ls";
-
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZDViNWIxMGJmMDAwMTVjZjIyYjYiLCJpYXQiOjE3NDg5NDg0MDYsImV4cCI6MTc1MDE1ODAwNn0.OdtalgFyC7p5edoHwc0t6DdVkCcrtVHFhaxzCp1Cq5E";
   useEffect(() => {
     fetchProfile();
+    fetchFriends();
   }, []);
+
+  const fetchFriends = async () => {
+    try {
+      const response = await fetch(API_BASE, {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("errore nella fetch");
+      }
+      const data = await response.json();
+      setFriends(data.slice(0, 10));
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   const fetchProfile = async () => {
     try {
@@ -62,12 +83,16 @@ const Sidebar = () => {
 
   if (!profile) return null;
 
+  if (friends) {
+    console.log(friends);
+  }
+
   const initials = `${profile.name?.charAt(0) || ""}${profile.surname?.charAt(0) || ""}`.toUpperCase();
 
   return (
     <>
-      <Col className="side-section ms-auto" xs={2}>
-        <div className="language-card">
+      <Col className="side-section ms-auto" xs={3}>
+        <div className="cards">
           <h4>Lingua del profilo</h4>
           <i className="bi bi-pencil"></i>
           <h4>Profilo pubblico e URL</h4>
@@ -75,16 +100,36 @@ const Sidebar = () => {
           //da modificare
           <p>link preso da param</p>
         </div>
-        <div className="profile-job-offer">
-          {profile.image ? <img src={profile.image} alt="Profile" /> : <div className="profile-photo-placeholder">{initials}</div>}
+        <div className="cards">
+          {profile.image ? (
+            <Image className="img-fluid rounded-circle" src={profile.image} alt="Profile" />
+          ) : (
+            <div className="profile-photo-placeholder">{initials}</div>
+          )}
           <p>{profile.name}, scopri le opportunità offerte intorno a te</p>
         </div>
-      </Col>
-
-      <Col>
         {/* sezione amici */}
-        <div className="friends-section">
-          <h2 className="section-title">Formazione</h2>
+        <div className="cards">
+          <h2 className="section-title">Altri profili per te</h2>
+          {friends &&
+            friends.map((friend) => {
+              return (
+                <div key={friend.id} className="d-flex justify-content-center my-2">
+                  {friend.image ? (
+                    <Image className="img-fluid rounded-circle custom-side-img" src={friend.image} alt="profile" />
+                  ) : (
+                    <div className="profile-photo-placeholder">{initials}</div>
+                  )}
+                  <div>
+                    <p>
+                      {friend.name} {friend.surname}
+                    </p>
+                    <p>{friend.title}</p>
+                    <Button variant="info">Aggiungi</Button>
+                  </div>
+                </div>
+              );
+            })}
           <p className="text-muted">Aggiungi la tua formazione</p>
         </div>
       </Col>
