@@ -32,7 +32,7 @@ const Sidebar = () => {
         throw new Error("errore nella fetch");
       }
       const data = await response.json();
-      setFriends(data.slice(0, 10));
+      setFriends(data.slice(2, 12));
     } catch (error) {
       setError(error.message);
     }
