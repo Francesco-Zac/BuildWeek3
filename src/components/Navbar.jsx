@@ -6,10 +6,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-white shadow-sm px-2">
+    <nav className="navbar navbar-light bg-white shadow-sm ">
       <div className=" d-flex align-items-center w-100 justify-content-center">
         
-        <div className="d-flex  gap-2 px-5 custom-margin-left">
+        <div className="d-flex  gap-2 px-5 ">
           <a href="/">
             <img
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
@@ -18,10 +18,8 @@ const Navbar = () => {
             
             />
           </a>
-
-
- <div className='search-wrapper d-flex align-items-center'>
-  <i className="bi bi-search d-block d-sm-none me-2" style={{ fontSize: '1.2rem' }}></i>
+          <div className='search-wrapper d-flex align-items-center'>
+          <i className="bi bi-search d-block d-sm-none me-2" style={{ fontSize: '1.2rem' }}></i>
   <input
     type="text"
     className="form-control d-none d-sm-block"
@@ -31,7 +29,6 @@ const Navbar = () => {
         </div>
 
 
-        
         <div className="d-flex align-items-center gap-4 ">
           <div className="text-center">
             <svg
@@ -159,6 +156,9 @@ const Navbar = () => {
             }} ></div>
 
  <div className="dropdown">
+  <button className='btn bg-transparent border-0 d-flex align-items-center gap-1'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+      <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
+    </svg></button>
             <button
               className="btn bg-transparent border-0 d-flex align-items-center gap-1"
               type="button"
@@ -166,7 +166,8 @@ const Navbar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <p className="mb-0 small">For Business</p>
+              
+              <p className="mb-0 small"> For Business</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="12"

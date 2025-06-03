@@ -8,7 +8,6 @@ svg {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
     z-index: 2;
 }
 
@@ -65,9 +64,13 @@ svg {
   .navbar .text-center p {
     display: none;
   }
+
+  #businessDropdown {
+    display: none;
+  }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .form-control {
     display: none;
   }
@@ -86,3 +89,9 @@ svg {
     font-size: 0.8rem;
   }
 }
+
+@media (min-width: 500px) {
+    .navbar{
+        width: 100vw;
+    }
+};
