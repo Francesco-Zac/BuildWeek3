@@ -32,6 +32,7 @@ const MainSection = () => {
       });
 
       if (!response.ok) {
+        const errorText = await response.text();
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
@@ -108,7 +109,13 @@ const MainSection = () => {
   if (error) {
     return (
       <div className="main-section">
-        <div className="alert alert-danger">Errore nel caricamento del profilo: {error}</div>
+        <div className="alert alert-danger">
+          <strong>Errore nel caricamento del profilo:</strong> {error}
+          <br />
+          <button className="btn btn-primary mt-2" onClick={fetchProfile}>
+            Riprova
+          </button>
+        </div>
       </div>
     );
   }
@@ -119,8 +126,8 @@ const MainSection = () => {
 
   return (
     <div className="main-section">
+      {/* Profile Header Card */}
       <div className="profile-card">
-        {/* Header con foto copertina e profilo */}
         <div className="profile-header">
           <div className="cover-photo"></div>
           <div className="profile-photo">
@@ -131,58 +138,169 @@ const MainSection = () => {
           </button>
         </div>
 
-        {/* Informazioni profilo */}
         <div className="profile-info">
-          <h1 className="profile-name">
-            {profile.name} {profile.surname}
-          </h1>
-          <p className="profile-headline">{profile.title || "Titolo professionale"}</p>
-          <p className="profile-location">
-            <i className="fas fa-map-marker-alt me-1"></i>
-            {profile.area || "Località non specificata"}
-          </p>
-
-          <div className="profile-stats">
-            <span>500+ collegamenti</span>
+          <div className="d-flex justify-content-between align-items-start">
+            <div>
+              <h1 className="profile-name">
+                {profile.name} {profile.surname}
+              </h1>
+              <p className="profile-headline">{profile.title || "Studente presso EPICODE Institute of Technology"}</p>
+              <p className="profile-location">
+                {profile.area || "Rende, Calabria, Italia"} · <span className="contact-info">Informazioni di contatto</span>
+              </p>
+              <div className="availability">
+                <span className="available-badge">Disponibile per</span>
+              </div>
+            </div>
+            <div className="profile-actions">
+              <div className="dropdown">
+                <button className="btn btn-link dropdown-toggle p-0" type="button">
+                  <i className="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="action-buttons">
-            <button className="btn btn-primary-linkedin">
-              <i className="fas fa-plus me-2"></i>Segui
-            </button>
-            <button className="btn btn-secondary-linkedin">
-              <i className="fas fa-envelope me-2"></i>Messaggio
-            </button>
-            <button className="btn btn-outline-linkedin">
-              <i className="fas fa-ellipsis-h"></i>
-            </button>
+          <div className="profile-stats mt-3">
+            <div className="connections">500+ collegamenti</div>
+          </div>
+
+          <div className="action-buttons mt-3">
+            <button className="btn btn-primary-linkedin">Disponibile a lavorare</button>
+            <button className="btn btn-secondary-linkedin">Aggiungi sezione del profilo</button>
+            <button className="btn btn-outline-linkedin">Migliora profilo</button>
+            <button className="btn btn-outline-linkedin">Risorse</button>
           </div>
         </div>
+      </div>
 
-        {/* Sezione Bio */}
-        {profile.bio && (
-          <div className="profile-section">
-            <h2 className="section-title">Informazioni</h2>
-            <div className="about-text">{profile.bio}</div>
-          </div>
-        )}
-
-        {/* Sezione Attività */}
-        <div className="profile-section">
-          <h2 className="section-title">Attività</h2>
-          <p className="text-muted">Non ci sono ancora attività da mostrare</p>
+      {/* Recommended Section */}
+      <div className="profile-card">
+        <div className="card-header">
+          <h2 className="section-title">Consigliato per te</h2>
+          <span className="private-badge">Solo per te</span>
         </div>
+        <div className="card-body">
+          <div className="recommendation-item">
+            <div className="rec-icon">
+              <i className="fas fa-industry"></i>
+            </div>
+            <div className="rec-content">
+              <h3>In quale settore lavori?</h3>
+              <p>Gli utenti che aggiungono un settore ricevono fino a 2,5 volte più visualizzazioni del profilo.</p>
+              <button className="btn btn-outline-primary">Aggiungi settore</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        {/* Sezione Esperienza */}
-        <div className="profile-section">
+      {/* Analytics Section */}
+      <div className="profile-card">
+        <div className="card-header">
+          <h2 className="section-title">Analisi</h2>
+          <span className="private-badge">Solo per te</span>
+        </div>
+        <div className="card-body">
+          <div className="analytics-grid">
+            <div className="analytics-item">
+              <div className="analytics-number">0</div>
+              <div className="analytics-label">visualizzazioni del profilo</div>
+              <div className="analytics-desc">Aggiorna il tuo profilo per attrarre visitatori.</div>
+            </div>
+            <div className="analytics-item">
+              <div className="analytics-number">0</div>
+              <div className="analytics-label">impressioni del post</div>
+              <div className="analytics-desc">Crea un post per aumentare l'interesse.</div>
+            </div>
+          </div>
+          <div className="analytics-footer">
+            <span className="analytics-period">Ultimi 7 giorni</span>
+            <button className="btn btn-link">Mostra tutte le analisi</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Experience Section */}
+      <div className="profile-card">
+        <div className="card-header">
           <h2 className="section-title">Esperienza</h2>
-          <p className="text-muted">Aggiungi la tua esperienza lavorativa</p>
+          <div className="section-actions">
+            <button className="btn btn-link">
+              <i className="fas fa-plus"></i>
+            </button>
+            <button className="btn btn-link">
+              <i className="fas fa-pencil-alt"></i>
+            </button>
+          </div>
         </div>
+        <div className="card-body">
+          <p className="section-description">Metti in risalto i risultati raggiunti e ottieni fino a 2 volte più visualizzazioni del profilo e collegamenti</p>
+          <div className="experience-item">
+            <div className="company-logo">
+              <i className="fas fa-building"></i>
+            </div>
+            <div className="experience-details">
+              <h3>Qualifica</h3>
+              <p className="company-name">Organizzazione</p>
+              <p className="experience-period">2023 - Presente</p>
+            </div>
+          </div>
+          <button className="btn btn-outline-primary">
+            <i className="fas fa-plus me-2"></i>Aggiungi esperienza
+          </button>
+        </div>
+      </div>
 
-        {/* Sezione Formazione */}
-        <div className="profile-section">
+      {/* Education Section */}
+      <div className="profile-card">
+        <div className="card-header">
           <h2 className="section-title">Formazione</h2>
-          <p className="text-muted">Aggiungi la tua formazione</p>
+          <div className="section-actions">
+            <button className="btn btn-link">
+              <i className="fas fa-plus"></i>
+            </button>
+            <button className="btn btn-link">
+              <i className="fas fa-pencil-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div className="card-body">
+          <div className="education-item">
+            <div className="school-logo">
+              <i className="fas fa-university"></i>
+            </div>
+            <div className="education-details">
+              <h3>EPICODE Institute of Technology</h3>
+              <p className="education-period">2025 - 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Skills Section */}
+      <div className="profile-card">
+        <div className="card-header">
+          <h2 className="section-title">Competenze</h2>
+          <div className="section-actions">
+            <button className="btn btn-link">
+              <i className="fas fa-plus"></i>
+            </button>
+            <button className="btn btn-link">
+              <i className="fas fa-pencil-alt"></i>
+            </button>
+          </div>
+        </div>
+        <div className="card-body">
+          <p className="section-description">
+            Fai capire se hai un profilo adatto per le nuove opportunità: il 50% dei recruiter usa i dati sulle competenze per coprire le posizioni aperte
+          </p>
+          <div className="skills-categories">
+            <div className="skill-category">Soft skill</div>
+            <div className="skill-category">Competenze tecniche</div>
+          </div>
+          <button className="btn btn-outline-primary">
+            <i className="fas fa-plus me-2"></i>Aggiungi competenze
+          </button>
         </div>
       </div>
 
@@ -210,7 +328,7 @@ const MainSection = () => {
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Bio</label>
-                  <textarea className="form-control" name="bio" value={editForm.bio} onChange={handleInputChange} rows="4" required />
+                  <textarea className="form-control" name="bio" value={editForm.bio} onChange={handleInputChange} rows="4" />
                 </div>
                 <div className="mb-3">
                   <label className="form-label">Area</label>
