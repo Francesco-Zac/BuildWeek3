@@ -5,12 +5,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import MainSection from "./components/MainSection";
 import Navbar from "./components/Navbar";
 import "./App.css";
+import Sidebar from "./components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <MainSection />
+      <Sidebar />
     </div>
   );
 }
