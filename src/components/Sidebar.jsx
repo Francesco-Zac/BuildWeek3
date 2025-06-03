@@ -114,7 +114,7 @@ const Sidebar = () => {
           {friends &&
             friends.map((friend) => {
               return (
-                <div key={friend.id} className="d-flex justify-content-center my-2">
+                <div key={friend.id} className="d-flex justify-content-start my-2 ms-2">
                   {friend.image ? (
                     <Image className="img-fluid rounded-circle custom-side-img" src={friend.image} alt="profile" />
                   ) : (
