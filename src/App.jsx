@@ -4,16 +4,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import MainSection from "./components/MainSection";
 import Navbar from "./components/Navbar";
-import "./App.css";
+import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <MainSection />
-      <Sidebar />
-    </div>
+    <>
+      <div className="App">
+        <Navbar />
+        <MainSection />
+        <Sidebar />
+      </div>
+      <Footer />
+    </>
   );
 }
 
