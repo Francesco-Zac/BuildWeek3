@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserAction } from "../redux/action";
 
 const Sidebar = () => {
-  // const [profile, setProfile] = useState(null);
-  // const [loading, setLoading] = useState(true);
   const [errorFriends, setErrorFriends] = useState(null);
   const [friends, setFriends] = useState(null);
 
@@ -29,7 +27,6 @@ const Sidebar = () => {
   // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZDViNWIxMGJmMDAwMTVjZjIyYjYiLCJpYXQiOjE3NDg5NDg0MDYsImV4cCI6MTc1MDE1ODAwNn0.OdtalgFyC7p5edoHwc0t6DdVkCcrtVHFhaxzCp1Cq5E";
   useEffect(() => {
     dispatch(setUserAction(API_BASE + "/me", TOKEN));
-    // fetchProfile();
     fetchFriends();
   }, []);
 
@@ -52,28 +49,6 @@ const Sidebar = () => {
       setErrorFriends(error.message);
     }
   };
-
-  // const fetchProfile = async () => {
-  //   try {
-  //     const response = await fetch(`${API_BASE}/me`, {
-  //       headers: {
-  //         Authorization: `Bearer ${TOKEN}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`);
-  //     }
-
-  //     const profileData = await response.json();
-  //     setProfile(profileData);
-  //   } catch (err) {
-  //     setError(err.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   if (loading) {
     return (
