@@ -124,9 +124,10 @@ const Sidebar = () => {
                     <div className="profile-photo-placeholder">{initials}</div>
                   )}
                   <div className="d-flex flex-column ms-2">
-                    <h2 className="custom-h2">
+                    {/* da collegare per nuove pagine profilo */}
+                    <a className="custom-h2">
                       {friend.name} {friend.surname}
-                    </h2>
+                    </a>
                     <p>{friend.title}</p>
                     <Button variant="primary" className="btn btn-outline-primary rounded-pill custom-max-width-btn">
                       Aggiungi
