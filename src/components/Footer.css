@@ -35,3 +35,19 @@ h6 {
 .footer-links p {
   margin-left: 25px;
 }
+
+@media (max-width: 439px) {
+  .footer {
+    display: inline-block;
+  }
+  .footer-links {
+    padding: 10px;
+    text-align: start;
+    margin: 0;
+    margin-inline: auto;
+  }
+  .footer-links a {
+    display: block;
+    text-align: left;
+  }
+}
