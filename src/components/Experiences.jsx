@@ -13,6 +13,7 @@ const Experiences = ({ userId, token }) => {
     endDate: "",
     description: "",
     area: "",
+    summary: "",
     currentJob: false,
   });
   const [imageFile, setImageFile] = useState(null);
@@ -69,6 +70,7 @@ const Experiences = ({ userId, token }) => {
       endDate: "",
       description: "",
       area: "",
+      summary: "",
       currentJob: false,
     });
     setEditingExp(null);
@@ -88,6 +90,7 @@ const Experiences = ({ userId, token }) => {
       startDate: exp.startDate ? exp.startDate.split("T")[0] : "",
       endDate: exp.endDate ? exp.endDate.split("T")[0] : "",
       description: exp.description || "",
+      summary: exp.summary || "",
       area: exp.area || "",
       currentJob: !exp.endDate,
     });
@@ -279,6 +282,7 @@ const Experiences = ({ userId, token }) => {
                             {exp.description}
                           </p>
                         )}
+                        {exp.summary && <p className="small text-muted mt-1">{exp.summary}</p>}
                       </div>
 
                       <div className="dropdown">
@@ -409,6 +413,18 @@ const Experiences = ({ userId, token }) => {
                       onChange={handleInputChange}
                       rows="4"
                       placeholder="Descrivi le tue responsabilità, risultati raggiunti, competenze acquisite..."
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Riepilogo</label>
+                    <textarea
+                      className="form-control"
+                      name="summary"
+                      value={formData.summary}
+                      onChange={handleInputChange}
+                      rows="4"
+                      placeholder="Compare sotto il tuo nome nella parte superiore del profilo"
                     />
                   </div>
 
