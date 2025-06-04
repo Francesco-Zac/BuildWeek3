@@ -6,10 +6,10 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-white shadow-sm ">
+    <nav className="navbar">
       <div className=" d-flex align-items-center w-100 justify-content-center">
         
-        <div className="d-flex  gap-2 px-4 ">
+        <div className="d-flex  gap-2 px-4">
           <a href="/">
             <img
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
@@ -19,7 +19,7 @@ const Navbar = () => {
             />
           </a>
           <div className='search-wrapper d-flex align-items-center'>
-          <i className="bi bi-search d-block d-sm-none me-2" style={{ fontSize: '1.2rem' }}></i>
+          <i className="bi bi-search d-block d-sm-none " style={{ fontSize: '1.2rem' }}></i>
   <input
     type="text"
     className="form-control d-none d-sm-block"
@@ -106,7 +106,7 @@ const Navbar = () => {
   ></button>
 
   <button
-    className="btn btn-link text-decoration-none d-flex align-items-center gap-1 p-0 mt-1"
+    className="btn btn-link text-decoration-none d-flex align-items-center gap-1 p-0 mt-1 "
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
@@ -149,14 +149,24 @@ const Navbar = () => {
   </ul>
 </div>
 
-<div style={{
+
+
+
+
+
+<div  className="linea" style={{
               width: "1px",
               height: "32px",
               backgroundColor: "#d3d3d3",
             }} ></div>
 
+
+
+
+
+
  <div className="dropdown">
-  <button className='btn bg-transparent border-0 d-flex align-items-center gap-1'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" class="mercado-match" width="24" height="24" focusable="false">
+  <button className='btn bg-transparent border-0 d-flex align-items-center gap-1'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
       <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
     </svg></button>
             <button
@@ -167,7 +177,7 @@ const Navbar = () => {
               aria-expanded="false"
             >
               
-              <p className="mb-0 small"> For Business</p>
+              <p className="mb-0 small"> For Business </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="12"
