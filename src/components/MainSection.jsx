@@ -158,7 +158,7 @@ const MainSection = () => {
               </div>
             </div>
             <button className="edit-btn" onClick={handleEditClick}>
-              <i class="bi bi-pencil"></i>
+              <i className="bi bi-pencil"></i>
             </button>
           </div>
 
