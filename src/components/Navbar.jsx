@@ -136,7 +136,7 @@ const Navbar = () => {
       alt="Profile"
     />
     <div>
-      <strong>{mainUser?.name || "Utente"} {mainUser.surname}</strong><br />
+      <strong>{mainUser?.name  || "Utente"} {mainUser?.surname || ''}</strong><br />
       <small className="text-muted">{mainUser?.title || "Ruolo non disponibile"}</small>
       <div className="mt-2 row">
         <a href="/profile" className="btn btn-outline-primary btn-sm me-2">Visualizza profilo</a>
