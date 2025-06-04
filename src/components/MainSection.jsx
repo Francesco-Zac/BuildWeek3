@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Experiences from "./Experiences";
 import "./MainSection.css";
 
 const MainSection = () => {
@@ -133,9 +134,6 @@ const MainSection = () => {
           <div className="profile-photo">
             {profile.image ? <img src={profile.image} alt="Profile" /> : <div className="profile-photo-placeholder">{initials}</div>}
           </div>
-          <button className="edit-btn" onClick={handleEditClick}>
-            <i className="fas fa-pencil-alt"></i>
-          </button>
         </div>
 
         <div className="profile-info">
@@ -159,6 +157,9 @@ const MainSection = () => {
                 </button>
               </div>
             </div>
+            <button className="edit-btn" onClick={handleEditClick}>
+              <i class="bi bi-pencil"></i>
+            </button>
           </div>
 
           <div className="profile-stats mt-3">
@@ -221,35 +222,8 @@ const MainSection = () => {
       </div>
 
       {/* Experience Section */}
-      <div className="profile-card">
-        <div className="card-header">
-          <h2 className="section-title">Esperienza</h2>
-          <div className="section-actions">
-            <button className="btn btn-link">
-              <i className="fas fa-plus"></i>
-            </button>
-            <button className="btn btn-link">
-              <i className="fas fa-pencil-alt"></i>
-            </button>
-          </div>
-        </div>
-        <div className="card-body">
-          <p className="section-description">Metti in risalto i risultati raggiunti e ottieni fino a 2 volte più visualizzazioni del profilo e collegamenti</p>
-          <div className="experience-item">
-            <div className="company-logo">
-              <i className="fas fa-building"></i>
-            </div>
-            <div className="experience-details">
-              <h3>Qualifica</h3>
-              <p className="company-name">Organizzazione</p>
-              <p className="experience-period">2023 - Presente</p>
-            </div>
-          </div>
-          <button className="btn btn-outline-primary">
-            <i className="fas fa-plus me-2"></i>Aggiungi esperienza
-          </button>
-        </div>
-      </div>
+
+      <Experiences userId={profile._id} token={TOKEN} />
 
       {/* Education Section */}
       <div className="profile-card">
