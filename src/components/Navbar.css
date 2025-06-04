@@ -16,9 +16,11 @@ svg {
   padding: 0;
 }
 
+
+
 /* Dropdown stile business */
 .dropdown-menu {
-  min-width: 650px;
+  min-width: 264px;
   border-radius: 8px;
   padding: 1rem;
   max-width: 100%;
@@ -34,11 +36,7 @@ svg {
     height: 80px;
   }
 
-  .dropdown-menu {
-    min-width: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
+
 
   .form-control {
     width: 120px !important;
@@ -93,7 +91,11 @@ svg {
   .dropdown .btn,
   .dropdown .btn-link {
     font-size: 0.75rem;
+
   }
+  .navbar .linea{
+  display: none !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -101,13 +103,7 @@ svg {
     flex: 1 1 45%;
   }
 
-  .dropdown-menu {
-    padding: 0.75rem;
-    min-width: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
+  
   .gap-4 {
     gap: 1.5rem !important;
   }
