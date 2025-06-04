@@ -101,8 +101,8 @@ const Navbar = () => {
 
 <div className="dropdown text-center d-flex flex-column align-items-center">
   <button
-    className="rounded-circle bg-secondary border-0 p-0"
-    style={{ width: "24px", height: "24px", backgroundImage: mainUser ? 'url(${mainUser.image})' : undefined, backgroundSize:"cover", backgroundPosition: "center" }}
+    className="rounded-circle border-0 p-0"
+    style={{ width: "24px", height: "24px", backgroundImage: mainUser?.image ? `url(${mainUser.image})` : 'none', backgroundSize:"cover", backgroundPosition: "center" }}
     id="meDropdown"
     data-bs-toggle="dropdown"
     aria-expanded="false"
