@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar navbar-light bg-white shadow-sm ">
       <div className=" d-flex align-items-center w-100 justify-content-center">
         
-        <div className="d-flex  gap-2 px-5 ">
+        <div className="d-flex  gap-2 px-4 ">
           <a href="/">
             <img
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
