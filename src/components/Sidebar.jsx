@@ -117,7 +117,7 @@ const Sidebar = () => {
               <h4>Lingua del profilo</h4>
               <i className="bi bi-pencil"></i>
             </div>
-            <p>Italiano</p>
+            <p className="text-start">Italiano</p>
           </div>
           <div className="px-2">
             <div className="d-flex justify-content-between">
@@ -125,7 +125,7 @@ const Sidebar = () => {
               <i className="bi bi-pencil"></i>
               {/* da modificare */}
             </div>
-            <p>link preso da param</p>
+            <p className="text-start">link preso da param</p>
           </div>
         </div>
         <div className="cards">
