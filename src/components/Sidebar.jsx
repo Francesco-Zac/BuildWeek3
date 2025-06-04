@@ -123,7 +123,7 @@ const Sidebar = () => {
                   ) : (
                     <div className="profile-photo-placeholder">{initials}</div>
                   )}
-                  <div className="d-flex flex-column">
+                  <div className="d-flex flex-column ms-2">
                     <h2 className="custom-h2">
                       {friend.name} {friend.surname}
                     </h2>
