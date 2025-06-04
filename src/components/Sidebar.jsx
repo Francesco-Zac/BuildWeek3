@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./Sidebar.css";
 import { Button, Col, Image } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserAction } from "../redux/action";
 
 const Sidebar = () => {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [profile, setProfile] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  const [errorFriends, setErrorFriends] = useState(null);
   const [friends, setFriends] = useState(null);
+
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => {
+    return state.user.mainUser;
+  });
+  const loading = useSelector((state) => {
+    return state.user.isLoading;
+  });
+  const error = useSelector((state) => {
+    return state.error.errorMessage;
+  });
 
   //use params con react router
 
@@ -15,7 +28,8 @@ const Sidebar = () => {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
   // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlZDViNWIxMGJmMDAwMTVjZjIyYjYiLCJpYXQiOjE3NDg5NDg0MDYsImV4cCI6MTc1MDE1ODAwNn0.OdtalgFyC7p5edoHwc0t6DdVkCcrtVHFhaxzCp1Cq5E";
   useEffect(() => {
-    fetchProfile();
+    dispatch(setUserAction(API_BASE + "/me", TOKEN));
+    // fetchProfile();
     fetchFriends();
   }, []);
 
@@ -34,31 +48,32 @@ const Sidebar = () => {
       const data = await response.json();
       setFriends(data.slice(2, 12));
     } catch (error) {
-      setError(error.message);
+      console.log(error);
+      setErrorFriends(error.message);
     }
   };
 
-  const fetchProfile = async () => {
-    try {
-      const response = await fetch(`${API_BASE}/me`, {
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      });
+  // const fetchProfile = async () => {
+  //   try {
+  //     const response = await fetch(`${API_BASE}/me`, {
+  //       headers: {
+  //         Authorization: `Bearer ${TOKEN}`,
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+  //     if (!response.ok) {
+  //       throw new Error(`HTTP error! status: ${response.status}`);
+  //     }
 
-      const profileData = await response.json();
-      setProfile(profileData);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //     const profileData = await response.json();
+  //     setProfile(profileData);
+  //   } catch (err) {
+  //     setError(err.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   if (loading) {
     return (
@@ -77,6 +92,14 @@ const Sidebar = () => {
     return (
       <div className="main-section">
         <div className="alert alert-danger">Errore nel caricamento del profilo: {error}</div>
+      </div>
+    );
+  }
+
+  if (errorFriends) {
+    return (
+      <div className="main-section">
+        <div className="alert alert-danger">Errore nel caricamento: {errorFriends}</div>
       </div>
     );
   }
