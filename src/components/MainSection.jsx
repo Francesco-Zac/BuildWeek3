@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Experiences from "./Experiences";
 import "./MainSection.css";
 
+const TOKEN =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
 const MainSection = () => {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const profile = useSelector((state) => state.user.mainUser);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editForm, setEditForm] = useState({
     name: "",
@@ -14,44 +15,24 @@ const MainSection = () => {
     bio: "",
     area: "",
   });
-
-  const API_BASE = "https://striveschool-api.herokuapp.com/api/profile";
-  const TOKEN =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchProfile();
-  }, []);
-
-  const fetchProfile = async () => {
-    try {
-      const response = await fetch(`${API_BASE}/me`, {
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const profileData = await response.json();
-      setProfile(profileData);
+    if (profile) {
       setEditForm({
-        name: profileData.name || "",
-        surname: profileData.surname || "",
-        title: profileData.title || "",
-        bio: profileData.bio || "",
-        area: profileData.area || "",
+        name: profile.name || "",
+        surname: profile.surname || "",
+        title: profile.title || "",
+        bio: profile.bio || "",
+        area: profile.area || "",
       });
-    } catch (err) {
-      setError(err.message);
-    } finally {
       setLoading(false);
+      setError(null);
+    } else {
+      setLoading(true);
     }
-  };
+  }, [profile]);
 
   const handleEditClick = () => {
     setShowEditModal(true);
@@ -66,31 +47,15 @@ const MainSection = () => {
   };
 
   const handleSaveProfile = async () => {
+    if (!editForm.name || !editForm.surname || !editForm.title || !editForm.area) {
+      setError("Tutti i campi sono obbligatori");
+      return;
+    }
     try {
-      const updatedProfile = {
-        ...editForm,
-        email: profile.email,
-        username: profile.username,
-      };
-
-      const response = await fetch(`${API_BASE}/`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedProfile),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const updated = await response.json();
-      setProfile(updated);
       setShowEditModal(false);
+      setError(null);
     } catch (err) {
-      setError(err.message);
+      setError("Errore durante il salvataggio");
     }
   };
 
@@ -112,16 +77,14 @@ const MainSection = () => {
       <div className="main-section">
         <div className="alert alert-danger">
           <strong>Errore nel caricamento del profilo:</strong> {error}
-          <br />
-          <button className="btn btn-primary mt-2" onClick={fetchProfile}>
-            Riprova
-          </button>
         </div>
       </div>
     );
   }
 
-  if (!profile) return null;
+  if (!profile) {
+    return null;
+  }
 
   const initials = `${profile.name?.charAt(0) || ""}${profile.surname?.charAt(0) || ""}`.toUpperCase();
 
@@ -222,7 +185,6 @@ const MainSection = () => {
       </div>
 
       {/* Experience Section */}
-
       <Experiences userId={profile._id} token={TOKEN} />
 
       {/* Education Section */}
