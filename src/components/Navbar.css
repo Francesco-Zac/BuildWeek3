@@ -13,6 +13,7 @@ svg {
   z-index: 1;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 
@@ -48,6 +49,10 @@ svg {
 
   .navbar .text-center p {
     font-size: 10px;
+  }
+
+  .gap-4{
+    gap: 0.6rem !important;
   }
 
   .gap-2 {
@@ -95,6 +100,10 @@ svg {
   .navbar .linea{
   display: none !important;
 }
+.dropdown-item{
+  display: none !important;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -104,7 +113,7 @@ svg {
 
   
   .gap-4 {
-    gap: 1.5rem !important;
+    gap: 0.7rem !important;
   }
 
   .gap-2 {
@@ -119,6 +128,10 @@ svg {
 }
 
 .navbar .linea{
+  display: none !important;
+}
+
+.dropdown-item{
   display: none !important;
 }
 }
