@@ -117,13 +117,13 @@ const Sidebar = () => {
           {friends &&
             friends.map((friend) => {
               return (
-                <div key={friend._id} className="d-flex justify-content-start my-2 ms-2 card-friends">
+                <div key={friend._id} className="d-flex justify-content-start my-2 ms-3 card-friends text-start">
                   {friend.image ? (
                     <Image className="img-fluid rounded-circle custom-side-img" src={friend.image} alt="profile" />
                   ) : (
                     <div className="profile-photo-placeholder">{initials}</div>
                   )}
-                  <div className="d-flex flex-column">
+                  <div className="d-flex flex-column ms-2">
                     <h2 className="custom-h2">
                       {friend.name} {friend.surname}
                     </h2>
