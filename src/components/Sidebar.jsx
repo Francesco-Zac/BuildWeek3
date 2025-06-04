@@ -112,14 +112,14 @@ const Sidebar = () => {
     <>
       <Col className="side-section ms-auto" xs={3}>
         <div className="cards">
-          <div className="px-2">
+          <div className="p-2">
             <div className="d-flex justify-content-between">
               <h4>Lingua del profilo</h4>
               <i className="bi bi-pencil"></i>
             </div>
             <p className="text-start">Italiano</p>
           </div>
-          <div className="px-2">
+          <div className="p-2">
             <div className="d-flex justify-content-between">
               <h4>Profilo pubblico e URL</h4>
               <i className="bi bi-pencil"></i>
