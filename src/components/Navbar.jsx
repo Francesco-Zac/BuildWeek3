@@ -136,7 +136,7 @@ const Navbar = () => {
       alt="Profile"
     />
     <div>
-      <strong>{mainUser?.name || "Utente"}</strong><br />
+      <strong>{mainUser?.name || "Utente"} {mainUser.surname}</strong><br />
       <small className="text-muted">{mainUser?.title || "Ruolo non disponibile"}</small>
       <div className="mt-2 row">
         <a href="/profile" className="btn btn-outline-primary btn-sm me-2">Visualizza profilo</a>
@@ -246,7 +246,7 @@ const Navbar = () => {
       </div>
       <div className="d-flex align-items-center mb-3">
         <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" width="24" className="me-3" />
-        <span>Pubblica un’offerta di lavoro</span>
+        <span>Pubblica un'offerta di lavoro</span>
       </div>
 
       <h6 className="text-muted mt-4 mb-3">Vendite</h6>
