@@ -112,12 +112,17 @@ const Sidebar = () => {
     <>
       <Col className="side-section ms-auto" xs={3}>
         <div className="cards">
-          <h4>Lingua del profilo</h4>
-          <i className="bi bi-pencil"></i>
-          <h4>Profilo pubblico e URL</h4>
-          <i className="bi bi-pencil"></i>
-          //da modificare
-          <p>link preso da param</p>
+          <div>
+            <h4>Lingua del profilo</h4>
+            <i className="bi bi-pencil"></i>
+            <p>Italiano</p>
+          </div>
+          <div>
+            <h4>Profilo pubblico e URL</h4>
+            <i className="bi bi-pencil"></i>
+            //da modificare
+            <p>link preso da param</p>
+          </div>
         </div>
         <div className="cards">
           {profile.image ? (
