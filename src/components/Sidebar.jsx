@@ -112,17 +112,17 @@ const Sidebar = () => {
     <>
       <Col className="side-section ms-auto" xs={3}>
         <div className="cards">
-          <div>
+          <div className="d-flex justify-content-around">
             <h4>Lingua del profilo</h4>
             <i className="bi bi-pencil"></i>
-            <p>Italiano</p>
           </div>
-          <div>
+          <p>Italiano</p>
+          <div className="d-flex justify-content-around">
             <h4>Profilo pubblico e URL</h4>
             <i className="bi bi-pencil"></i>
-            //da modificare
-            <p>link preso da param</p>
+            {/* da modificare */}
           </div>
+          <p>link preso da param</p>
         </div>
         <div className="cards">
           {profile.image ? (
