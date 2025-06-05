@@ -28,8 +28,11 @@ const LeftSideHome = () => {
         <div className="profile-card left-side-profile-card">
           <div className="profile-header">
             <div className="cover-photo left-side-cover-header"></div>
-            <div className="profile-photo left-side-profile-pic-header">
-              <img src={profile.image} alt="Profile" />
+            <div className="position-relative">
+              <div className="profile-photo left-side-profile-pic-header">
+                <img src={profile.image} alt="Profile" />
+              </div>
+              <div className="pinocchio"></div>
             </div>
           </div>
 

@@ -92,3 +92,12 @@
 .borislav {
   align-items: start !important;
 }
+
+.pinocchio {
+  background-color: green;
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  height: 5px;
+  width: 5px;
+}
