@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Experiences from "./Experiences";
 import "./MainSection.css";
-
+import Sidebar from "./Sidebar";
+import LeftSideHome from "./LeftSideHome";
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
 const MainSection = () => {
@@ -285,6 +286,7 @@ const MainSection = () => {
       )}
     </div>
   );
+  <Sidebar />;
 };
 
 export default MainSection;

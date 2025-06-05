@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import LeftSideHome from "../components/LeftSideHome";
 
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
@@ -124,6 +125,7 @@ const Home = () => {
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
       {/* Box scrivi un post */}
+      <LeftSideHome></LeftSideHome>
       <div className="card mb-3 shadow-sm">
         <div className="card-body d-flex flex-column">
           <div className="d-flex align-items-center mb-2">
@@ -151,7 +153,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Feed post */}
       {loading ? (
         <div className="text-center my-4">
