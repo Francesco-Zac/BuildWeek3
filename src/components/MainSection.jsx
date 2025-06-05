@@ -8,7 +8,9 @@ const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
 const MainSection = () => {
   const profile = useSelector((state) => state.user.mainUser);
+  const [imageFile, setImageFile] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [experiences, setExperiences] = useState([]);
   const [editForm, setEditForm] = useState({
     name: "",
     surname: "",
@@ -34,6 +36,21 @@ const MainSection = () => {
       setLoading(true);
     }
   }, [profile]);
+
+  const fetchExperiences = async () => {
+    try {
+      const res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${profile._id}/experiences`, {
+        headers: { Authorization: `Bearer ${TOKEN}` },
+      });
+      if (!res.ok) throw new Error("Errore nella fetch delle esperienze");
+      const data = await res.json();
+      setExperiences(data);
+    } catch (err) {
+      console.error("Errore nel caricamento esperienze:", err);
+    }
+  };
+
+  fetchExperiences();
 
   const handleEditClick = () => {
     setShowEditModal(true);
@@ -88,6 +105,29 @@ const MainSection = () => {
   }
 
   const initials = `${profile.name?.charAt(0) || ""}${profile.surname?.charAt(0) || ""}`.toUpperCase();
+  const handleProfileImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("profile", file);
+
+    try {
+      const res = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${profile._id}/picture`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error("Errore nell'upload immagine");
+
+      window.location.reload();
+    } catch (err) {
+      console.error("Errore durante il cambio immagine profilo:", err);
+    }
+  };
 
   return (
     <>
@@ -95,7 +135,13 @@ const MainSection = () => {
         {/* Profile Header Card */}
         <div className="profile-card">
           <div className="profile-header">
-            <div className="cover-photo"></div>
+            <div className="cover-photo position-relative">
+              <label htmlFor="upload-photo" className="edit-btn bg-white" title="Cambia immagine profilo">
+                <i className="bi bi-camera-fill m-0"></i>
+              </label>
+              <input type="file" id="upload-photo" accept="image/*" style={{ display: "none" }} onChange={handleProfileImageUpload} />
+            </div>
+
             <div className="profile-photo">
               {profile.image ? <img src={profile.image} alt="Profile" /> : <div className="profile-photo-placeholder">{initials}</div>}
             </div>
@@ -115,13 +161,31 @@ const MainSection = () => {
                   <span className="available-badge">Disponibile per</span>
                 </div>
               </div>
-              <div className="profile-actions">
-                <div className="dropdown">
-                  <button className="btn btn-link dropdown-toggle p-0" type="button">
-                    <i className="fas fa-ellipsis-h"></i>
-                  </button>
-                </div>
+              <div className="profile-experiences mt-3">
+                <h6 className="fw-bold mb-2">Esperienze recenti</h6>
+                {experiences.length > 0 ? (
+                  experiences.slice(0, 2).map((exp) => (
+                    <div key={exp._id} className="d-flex align-items-center mb-2">
+                      <div className="me-2">
+                        {exp.image ? (
+                          <img src={exp.image} alt={exp.company} className="rounded" style={{ width: "32px", height: "32px", objectFit: "cover" }} />
+                        ) : (
+                          <div className="bg-light rounded d-flex align-items-center justify-content-center" style={{ width: "32px", height: "32px" }}>
+                            <i className="fas fa-building text-muted"></i>
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <strong className="d-block">{exp.role}</strong>
+                        <small className="text-muted">{exp.company}</small>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-muted">Nessuna esperienza disponibile</p>
+                )}
               </div>
+
               <button className="edit-btn" onClick={handleEditClick}>
                 <i className="bi bi-pencil"></i>
               </button>

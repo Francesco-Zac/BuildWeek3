@@ -73,7 +73,7 @@ const SidebarHome = () => {
               marginBottom: "1rem",
             }}
           >
-            <img src="https://media.licdn.com/media/AAYABATPAAgAAQAAAAAAAKwYrfHUPkoBQGmwnaG71Ps_5Q.png" alt="Hiring" width="100%" height="250px" />"
+            <img src="https://media.licdn.com/media/AAYABATPAAgAAQAAAAAAAKwYrfHUPkoBQGmwnaG71Ps_5Q.png" alt="Hiring" width="100%" height="250px" />
           </div>
 
           <div className="p-2 d-flex gap-2 bg-white rounded">
