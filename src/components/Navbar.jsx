@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className=" d-flex align-items-center w-100 justify-content-evenly">
         <div className="nav d-flex  gap-1 px-4">
-          <a href="/">
+          <a href="/home">
             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="41" />
           </a>
           <div className="search-wrapper d-flex align-items-center">
