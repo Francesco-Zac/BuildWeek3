@@ -17,7 +17,7 @@
 
 .left-side-profile-pic-header {
   height: 70px;
-  width: auto;
+  width: 70px;
   left: 14px;
   bottom: -35px;
 }
@@ -57,6 +57,7 @@
 .analytics-left-side-span {
   margin-left: 5rem;
   color: blue;
+  font-size: 12px;
 }
 
 .obj-left-side-div {
