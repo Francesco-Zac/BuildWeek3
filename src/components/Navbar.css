@@ -13,10 +13,7 @@ svg {
   z-index: 1;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
 }
-
-
 
 /* Dropdown stile business */
 .dropdown-menu {
@@ -27,19 +24,11 @@ svg {
   overflow-x: hidden;
 }
 
-
-
-
-
-
 /* Responsive generale */
 @media (max-width: 1200px) {
-
-  .navbar{
+  .navbar {
     height: 80px;
   }
-
-
 
   .form-control {
     width: 120px !important;
@@ -54,7 +43,7 @@ svg {
     font-size: 10px;
   }
 
-  .gap-4{
+  .gap-4 {
     gap: 0.6rem !important;
   }
 
@@ -98,15 +87,13 @@ svg {
   .dropdown .btn,
   .dropdown .btn-link {
     font-size: 0.75rem;
-
   }
-  .navbar .linea{
-  display: none !important;
-}
-.dropdown-item{
-  display: none !important;
-}
-
+  .navbar .linea {
+    display: none !important;
+  }
+  .dropdown-item {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -114,7 +101,6 @@ svg {
     flex: 1 1 45%;
   }
 
-  
   .gap-4 {
     gap: 0.7rem !important;
   }
@@ -122,20 +108,23 @@ svg {
   .gap-2 {
     gap: 0.25rem !important;
   }
-    .navbar .text-center svg {
+  .navbar .text-center svg {
     width: 15px;
     height: 15px;
   }
-.mercado-match{
-  display: none !important;
+  .mercado-match {
+    display: none !important;
+  }
+
+  .navbar .linea {
+    display: none !important;
+  }
+
+  .dropdown-item {
+    display: none !important;
+  }
 }
 
-.navbar .linea{
-  display: none !important;
+a {
+  text-decoration: none;
 }
-
-.dropdown-item{
-  display: none !important;
-}
-}
-

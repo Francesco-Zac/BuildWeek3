@@ -17,10 +17,12 @@ function App() {
       <Navbar />
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
         </Routes>
-        <Sidebar />
+      </div>
+      <div className="d-none">
+        <Sidebar></Sidebar>
       </div>
       <Footer />
     </Router>

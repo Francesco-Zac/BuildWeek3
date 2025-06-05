@@ -525,3 +525,9 @@
 .icons {
   font-size: 18px;
 }
+
+.icons:hover {
+  background-color: rgba(128, 128, 128, 0.339);
+  border-radius: 15%;
+  cursor: pointer;
+}

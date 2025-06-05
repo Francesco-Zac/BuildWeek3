@@ -49,9 +49,11 @@ const LeftSideHome = () => {
 
       <div className="cards-left-side-home">
         <div className="analytics-left-side-div">
-          <p className="analytics-left-side-p">
-            Visitatori del profilo <span className="analytics-left-side-span">4</span>
-          </p>
+          <div className="d-flex justify-content-between align-items-center w-100 borislav">
+            <p className="analytics-left-side-p">Visitatori del profilo</p>
+            <span className="analytics-left-side-span">4</span>
+          </div>
+
           <p className="analytics-left-side-p">Visualizza tutte le analisi</p>
         </div>
       </div>

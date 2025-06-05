@@ -1,5 +1,6 @@
 .left-side-home {
-  max-width: 25%;
+  max-width: 55%;
+  padding: 20px;
 }
 
 .cards-left-side-home {
@@ -46,8 +47,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  padding: 10px;
 }
 .analytics-left-side-p {
   color: #000;
@@ -86,4 +86,8 @@
 
 .icons-div p {
   color: #000;
+}
+
+.borislav {
+  align-items: start !important;
 }
