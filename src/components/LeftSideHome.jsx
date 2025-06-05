@@ -58,7 +58,7 @@ const LeftSideHome = () => {
       <div className="cards-left-side-home">
         <div className="obj-left-side-div">
           <p>Raggiuti i tuoi obiettivi di carriera</p>
-          <p className="obj-left-side-p">Prova premium per 0 EUR</p>
+          <p className="obj-left-side-p">Prova premium per 0 EUR 🟨</p>
         </div>
       </div>
       <div className="cards-left-side-home">
