@@ -6,9 +6,8 @@ import MainSection from "./components/MainSection";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
-import SidebarHome from "./components/SidebarHome.jsx"
 
+import Home from "./pages/Home";
 
 import "./App.css";
 
@@ -16,13 +15,12 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="d-flex justify-content-center mt-5">
+      <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
         </Routes>
-        <SidebarHome/>
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
       <Footer />
     </Router>
