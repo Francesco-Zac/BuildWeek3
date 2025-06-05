@@ -4,15 +4,16 @@ import { useSelector } from "react-redux";
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
 const API_URL = "https://striveschool-api.herokuapp.com/api/posts/";
+const PROFILE_URL = "https://striveschool-api.herokuapp.com/api/profile";
 
 const Home = () => {
   const mainUser = useSelector((state) => state.user.mainUser);
   const currentUsername = mainUser?.username || "";
 
   const [posts, setPosts] = useState([]);
+  const [userImages, setUserImages] = useState({});
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
-
   const [editingPostId, setEditingPostId] = useState(null);
   const [editingText, setEditingText] = useState("");
 
@@ -24,10 +25,29 @@ const Home = () => {
       });
       const data = await res.json();
       setPosts(data.reverse());
+      fetchUserImages(data.map((post) => post.username));
     } catch (err) {
       console.error("Errore nel caricamento post:", err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchUserImages = async (usernames) => {
+    try {
+      const res = await fetch(PROFILE_URL, {
+        headers: { Authorization: `Bearer ${TOKEN}` },
+      });
+      const profiles = await res.json();
+      const images = {};
+      profiles.forEach((profile) => {
+        if (usernames.includes(profile.username)) {
+          images[profile.username] = profile.image;
+        }
+      });
+      setUserImages(images);
+    } catch (err) {
+      console.error("Errore nel recupero immagini utenti:", err);
     }
   };
 
@@ -56,13 +76,11 @@ const Home = () => {
   const deletePost = async (postId) => {
     if (!window.confirm("Vuoi eliminare questo post?")) return;
     try {
-      const res = await fetch(`${API_URL}${postId}`, {
+      await fetch(`${API_URL}${postId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${TOKEN}` },
       });
-      if (res.ok) {
-        fetchPosts();
-      }
+      fetchPosts();
     } catch (err) {
       console.error("Errore nella cancellazione:", err);
     }
@@ -138,9 +156,8 @@ const Home = () => {
           <div key={post._id} className="card mb-3 shadow-sm">
             <div className="card-body">
               <div className="d-flex align-items-center mb-2">
-                {}
                 <img
-                  src={post.username === currentUsername && mainUser?.image ? mainUser.image : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
+                  src={userImages[post.username] || "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
                   alt="avatar"
                   className="rounded-circle me-2"
                   width={48}
@@ -152,9 +169,8 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* post in modifica */}
               {post._id === editingPostId ? (
-                <div>
+                <>
                   <textarea className="form-control mb-2" rows={3} value={editingText} onChange={(e) => setEditingText(e.target.value)} />
                   <div className="d-flex justify-content-end gap-2">
                     <button className="btn btn-sm btn-outline-secondary" onClick={cancelEdit}>
@@ -164,11 +180,10 @@ const Home = () => {
                       Salva
                     </button>
                   </div>
-                </div>
+                </>
               ) : (
                 <>
                   <p>{post.text}</p>
-                  {/* Modifica/Elimina */}
                   {post.username === currentUsername && (
                     <div className="d-flex justify-content-end gap-2">
                       <button className="btn btn-sm btn-outline-secondary" onClick={() => startEdit(post)}>
