@@ -138,10 +138,16 @@ const Home = () => {
               <input type="text" className="form-control rounded-pill" placeholder="Avvia un post" value={text} onChange={(e) => setText(e.target.value)} />
             </form>
           </div>
-          <div className="d-flex justify-content-between px-3 text-muted small">
-            <span>📷 Foto</span>
-            <span>🎥 Video</span>
-            <span>📄 Scrivi un Articolo</span>
+          <div className="d-flex justify-content-around px-3 text-muted small">
+            <span className="icons">
+              <i class="bi bi-play-btn-fill  "></i> Foto
+            </span>
+            <span className="icons">
+              <i class="bi bi-card-image"></i> Video
+            </span>
+            <span className="icons">
+              <i class="bi bi-layout-text-window-reverse"></i> Scrivi un Articolo
+            </span>
           </div>
         </div>
       </div>

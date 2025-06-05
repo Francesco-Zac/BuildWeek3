@@ -509,3 +509,19 @@
 .bi-pencil {
   margin: 0;
 }
+
+.bi-play-btn-fill {
+  color: green;
+}
+
+.bi-card-image {
+  color: #00aaff;
+}
+
+.bi-layout-text-window-reverse {
+  color: #ff7200;
+}
+
+.icons {
+  font-size: 18px;
+}
