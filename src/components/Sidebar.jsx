@@ -52,7 +52,7 @@ const Sidebar = () => {
 
   if (loading) {
     return (
-      <div className="main-section">
+      <div className="side-section">
         <div className="loading text-center">
           <div className="spinner-border text-primary" role="status">
             <span className="visually-hidden">Loading...</span>
@@ -65,7 +65,7 @@ const Sidebar = () => {
 
   if (error) {
     return (
-      <div className="main-section">
+      <div className="side-section">
         <div className="alert alert-danger">Errore nel caricamento del profilo: {error}</div>
       </div>
     );
@@ -73,7 +73,7 @@ const Sidebar = () => {
 
   if (errorFriends) {
     return (
-      <div className="main-section">
+      <div className="side-section">
         <div className="alert alert-danger">Errore nel caricamento: {errorFriends}</div>
       </div>
     );
