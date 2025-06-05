@@ -10,9 +10,9 @@ const Navbar = () => {
   const mainUser = useSelector ((state) => state.user.mainUser);
   return (
     <nav className="navbar">
-      <div className=" d-flex align-items-center w-100 justify-content-center">
+      <div className=" d-flex align-items-center w-100 justify-content-evenly">
         
-        <div className="nav d-flex  gap-2 px-4">
+        <div className="nav d-flex  gap-1 px-4">
           <a href="/">
             <img
               src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
