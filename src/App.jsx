@@ -9,6 +9,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
+import SidebarHome from "./components/SidebarHome.jsx"
+
 
 import "./App.css";
 
@@ -21,7 +23,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
         </Routes>
-        <Sidebar />
+        <SidebarHome/>
+        {/* <Sidebar /> */}
       </div>
       <Footer />
     </Router>

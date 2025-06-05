@@ -1,0 +1,12 @@
+.sidebar-home {
+  display: none;
+  width: 312px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+@media (min-width: 992px) {
+  .sidebar-home {
+    display: block;
+  }
+}
