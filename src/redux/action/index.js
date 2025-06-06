@@ -7,7 +7,7 @@ export const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";
 export const SET_JOBS = "SET_JOBS";
 
 export const setJobsArray = (endpoint) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       const response = await fetch(endpoint);
 
@@ -15,7 +15,6 @@ export const setJobsArray = (endpoint) => {
         console.log("error");
       }
       const dataJ = await response.json();
-      console.log(dataJ);
       dispatch({ type: SET_JOBS, payload: dataJ.data });
     } catch (error) {
       console.log(error);
@@ -24,7 +23,7 @@ export const setJobsArray = (endpoint) => {
 };
 
 export const setUserAction = (endpoint, TOKEN) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     dispatch({ type: SET_LOADING_ON });
     try {
       let response = await fetch(endpoint, {
