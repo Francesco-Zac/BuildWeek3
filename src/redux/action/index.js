@@ -4,6 +4,29 @@ export const SET_LOADING_OFF = "SET_LOADING_OFF";
 export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";
+export const SET_JOBS = "SET_JOBS";
+
+export const setJobsArray = (endpoint, TOKEN) => {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(endpoint, {
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        console.log("error");
+      }
+      const dataJ = await response.json();
+      console.log(dataJ);
+      dispatch({ type: SET_JOBS, payload: dataJ.data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const setUserAction = (endpoint, TOKEN) => {
   return async (dispatch, getState) => {
