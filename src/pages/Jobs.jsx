@@ -18,9 +18,11 @@ const LinkedinJobsPage = () => {
   }, []);
 
   return (
-    <div className="container py-4">
-      <LeftSideHome></LeftSideHome>
+    <>
+          <LeftSideHome></LeftSideHome>
 
+    <div className="container py-4">
+      
       {/* Ricerche recenti  */}
       <div className="card mb-4">
         <div className="card-body">
@@ -28,7 +30,7 @@ const LinkedinJobsPage = () => {
             <h6 className="fw-bold">Ricerche di offerte di lavoro recenti</h6>
             <button className="btn btn-sm btn-link text-danger">Cancella</button>
           </div>
-          <ul className="list-unstyled mb-0">
+          <ul className="list-unstyled mb-0 d-flex row text-start">
             <li><strong>3000</strong><br /><small className="text-muted">Distretto di Sofia, Bulgaria</small></li>
             <li className="mt-3"><strong>salary</strong> · <span className="text-success">15 nuove</span><br /><small className="text-muted">Distretto di Sofia, Bulgaria</small></li>
             <li className="mt-3"><strong>italian</strong> · <span className="text-success">33 nuove</span><br /><small className="text-muted">Distretto di Sofia, Bulgaria</small></li>
@@ -100,6 +102,7 @@ const LinkedinJobsPage = () => {
       
 
     </div>
+    </>
   );
 };
 
