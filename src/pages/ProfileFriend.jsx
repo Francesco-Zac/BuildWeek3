@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 
-<Route path="/profileFriend/:userID" element={<ProfileFriend />} />;
-
 const ProfileFriend = () => {
   const [currentProfile, setCurrentProfile] = useState();
   const params = useParams();

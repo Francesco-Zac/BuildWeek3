@@ -10,6 +10,7 @@ import JobsPage from "./pages/Jobs.jsx";
 import Home from "./pages/Home";
 
 import "./App.css";
+import ProfileFriend from "./pages/ProfileFriend.jsx";
 
 function App() {
   return (
