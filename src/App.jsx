@@ -6,7 +6,7 @@ import MainSection from "./components/MainSection";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer.jsx";
 import Sidebar from "./components/Sidebar";
-
+import JobsPage from "./pages/Jobs.jsx";
 import Home from "./pages/Home";
 
 import "./App.css";
@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
+          <Route path="/jobs" element={<JobsPage />} />
         </Routes>
       </div>
       <div className="d-none">

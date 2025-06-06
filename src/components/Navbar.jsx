@@ -2,6 +2,7 @@ import "./Navbar.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const mainUser = useSelector((state) => state.user.mainUser);
@@ -17,16 +18,16 @@ const Navbar = () => {
             <input type="text" className="form-control d-none d-sm-block" placeholder="🔍Cerca" />
           </div>
         </div>
-
+          
         <div className="d-flex align-items-center gap-4 ">
+          <Link to="/" className="text-center text-decoration-none text-dark">
           <div className="text-center">
-            <a href="/">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                 <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z" />
               </svg>
               <p className="mb-0 small">Home</p>
-            </a>
-          </div>
+           
+          </div></Link>
 
           <div className="text-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -35,12 +36,14 @@ const Navbar = () => {
             <p className="mb-0 small">Rete</p>
           </div>
 
-          <div className="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-              <path d="M22.84 10.22L21 6h-3.95V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2l2.22 5.18A3 3 0 007 13h14a2 2 0 001.84-2.78zM15.05 6h-6V5a1 1 0 011-1h4a1 1 0 011 1zM7 14h15v3a3 3 0 01-3 3H5a3 3 0 01-3-3V8.54l1.3 3A4 4 0 007 14z" />
-            </svg>
-            <p className="mb-0 small">Lavoro</p>
-          </div>
+          <Link to="/jobs" className="text-center text-decoration-none text-dark">
+  <div>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M22.84 10.22L21 6h-3.95V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2l2.22 5.18A3 3 0 007 13h14a2 2 0 001.84-2.78zM15.05 6h-6V5a1 1 0 011-1h4a1 1 0 011 1zM7 14h15v3a3 3 0 01-3 3H5a3 3 0 01-3-3V8.54l1.3 3A4 4 0 007 14z" />
+    </svg>
+    <p className="mb-0 small">Lavoro</p>
+  </div>
+</Link>
 
           <div className="text-center">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
