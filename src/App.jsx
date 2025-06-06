@@ -10,6 +10,7 @@ import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 
 import "./App.css";
+import JobsPage from "./pages/Jobs.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
+          <Route path="/jobs" element={<JobsPage />} />
         </Routes>
       </div>
       <div className="d-none">
