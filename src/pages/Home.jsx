@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import LeftSideHome from "../components/LeftSideHome";
 import SidebarHome from "../components/SidebarHome";
+import CommentSection from "../components/CommentSection";
 
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
@@ -128,7 +129,6 @@ const Home = () => {
       <LeftSideHome></LeftSideHome>
       <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
         {/* Box scrivi un post */}
-
         <div className="card mb-3 shadow-sm">
           <div className="card-body d-flex flex-column">
             <div className="d-flex align-items-center mb-2">
@@ -145,7 +145,7 @@ const Home = () => {
             </div>
             <div className="d-flex justify-content-around px-3 text-muted small">
               <span className="icons">
-                <i className="bi bi-play-btn-fill  "></i> Foto
+                <i className="bi bi-play-btn-fill"></i> Foto
               </span>
               <span className="icons">
                 <i className="bi bi-card-image"></i> Video
@@ -156,6 +156,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
         {/* Feed post */}
         {loading ? (
           <div className="text-center my-4">
@@ -195,7 +196,7 @@ const Home = () => {
                   <>
                     <p>{post.text}</p>
                     {post.username === currentUsername && (
-                      <div className="d-flex justify-content-end gap-2">
+                      <div className="d-flex justify-content-end gap-2 mb-2">
                         <button className="btn btn-sm btn-outline-secondary" onClick={() => startEdit(post)}>
                           Modifica
                         </button>
@@ -206,12 +207,15 @@ const Home = () => {
                     )}
                   </>
                 )}
+
+                {/* Sezione commenti - ora posizionata correttamente */}
+                <CommentSection postId={post._id} />
               </div>
             </div>
           ))
         )}
       </div>
-      <SidebarHome></SidebarHome>{" "}
+      <SidebarHome></SidebarHome>
     </>
   );
 };
