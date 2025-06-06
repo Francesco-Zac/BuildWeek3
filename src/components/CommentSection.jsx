@@ -235,7 +235,7 @@ const CommentSection = ({ postId }) => {
         <div className="d-flex gap-3">
           <button className="btn btn-link text-muted p-0 d-flex align-items-center" onClick={() => setShowComments(!showComments)}>
             <i className="bi bi-chat me-1"></i>
-            Commenti ({allComments.length})
+            Commenti {showComments ? `(${allComments.length})` : ""}
           </button>
         </div>
       </div>
