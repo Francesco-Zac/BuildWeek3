@@ -4,7 +4,7 @@ import LeftSideHome from "../components/LeftSideHome";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setJobsArray } from "../redux/action";
-
+import './Jobs.css'
 const LinkedinJobsPage = () => {
   //   const [jobs, setJobs] = useState([]);
   //   const [loading, setLoading] = useState(true);
@@ -73,7 +73,7 @@ const LinkedinJobsPage = () => {
         </div>
 
         {/* Offerte */}
-        <div className="card mb-4">
+        <div className="card mb-4 text-start">
           <div className="card-body">
             <h5 className="card-title">Le principali offerte di lavoro per te</h5>
             <p className="text-muted small">In base al tuo profilo, preferenze e attività come candidature, ricerche e salvataggi</p>
