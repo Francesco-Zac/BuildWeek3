@@ -1,0 +1,81 @@
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-side,
+.right-side {
+  flex: 1;
+  min-width: 200px;
+}
+
+.main-content {
+  flex: 2;
+  max-width: 600px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  border-radius: 25px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .left-side-home {
+    width: 100% !important;
+  }
+
+  .main-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .BoxPost {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 5px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar-home {
+    display: none;
+  }
+}
+
+.Commento {
+  text-align: left;
+  font-weight: bolder;
+  color: black;
+}

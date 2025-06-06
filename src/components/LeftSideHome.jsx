@@ -23,7 +23,7 @@ const LeftSideHome = () => {
 
   console.log(profile);
   return profile ? (
-    <div className="left-side-home">
+    <div className="left-side-home col col-sm-12 col-md-3 BoxPost">
       <div className="cards-left-side-home">
         <div className="profile-card left-side-profile-card">
           <div className="profile-header">

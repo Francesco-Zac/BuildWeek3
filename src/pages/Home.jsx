@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import LeftSideHome from "../components/LeftSideHome";
 import SidebarHome from "../components/SidebarHome";
 import CommentSection from "../components/CommentSection";
+import "./Home.css";
 
 const TOKEN =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODNlYmZjOWIxMGJmMDAwMTVjZjIyYjAiLCJpYXQiOjE3NDg5NDI3OTMsImV4cCI6MTc1MDE1MjM5M30.zt8TWcMqLwO6oYyfg5qvdD3KlS8YUn-F6igqfPGjVGQ";
@@ -127,7 +128,7 @@ const Home = () => {
   return (
     <>
       <LeftSideHome></LeftSideHome>
-      <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+      <div className="col-6 BoxPost">
         {/* Box scrivi un post */}
         <div className="card mb-3 shadow-sm">
           <div className="card-body d-flex flex-column">
@@ -194,7 +195,7 @@ const Home = () => {
                   </>
                 ) : (
                   <>
-                    <p>{post.text}</p>
+                    <p className="Commento">{post.text}</p>
                     {post.username === currentUsername && (
                       <div className="d-flex justify-content-end gap-2 mb-2">
                         <button className="btn btn-sm btn-outline-secondary" onClick={() => startEdit(post)}>

@@ -12,7 +12,7 @@ const newsItems = [
 const SidebarHome = () => {
   return (
     <>
-      <div className="sidebar-home">
+      <div className="sidebar-home col-3">
         {/* Box Notizie */}
         <div
           className="text-start"
