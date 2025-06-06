@@ -18,6 +18,7 @@
 
 .custom-img-side-profile {
   width: 50%;
+  aspect-ratio: 1/1;
   padding: 20px;
 }
 
