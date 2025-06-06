@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
           <Route path="/jobs" element={<JobsPage />} />
+          <Route path="/profileFriend/:userID" element={<ProfileFriend />} />;
         </Routes>
       </div>
       <div className="d-none">
