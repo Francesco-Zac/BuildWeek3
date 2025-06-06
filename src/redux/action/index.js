@@ -5,26 +5,32 @@ export const HAS_ERROR_ON = "HAS_ERROR_ON";
 export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";
 export const SET_JOBS = "SET_JOBS";
+export const SET_LOADING_ON_JOBS = "SET_LOADING_ON_JOBS";
+export const SET_LOADING_OFF_JOBS = "SET_LOADING_OFF_JOBS";
 
 export const setJobsArray = (endpoint) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
+    dispatch({ type: SET_LOADING_ON_JOBS });
     try {
       const response = await fetch(endpoint);
 
       if (!response.ok) {
-        console.log("error");
+        dispatch({ type: HAS_ERROR_ON });
+        dispatch({ type: SET_ERROR_MESSAGE, payload: "Errore nella fetch" });
       }
       const dataJ = await response.json();
-      console.log(dataJ);
       dispatch({ type: SET_JOBS, payload: dataJ.data });
     } catch (error) {
-      console.log(error);
+      dispatch({ type: HAS_ERROR_ON });
+      dispatch({ type: SET_ERROR_MESSAGE, payload: error.message });
+    } finally {
+      dispatch({ type: SET_LOADING_OFF_JOBS });
     }
   };
 };
 
 export const setUserAction = (endpoint, TOKEN) => {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     dispatch({ type: SET_LOADING_ON });
     try {
       let response = await fetch(endpoint, {

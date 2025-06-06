@@ -1,7 +1,8 @@
-import { SET_JOBS } from "../action";
+import { SET_JOBS, SET_LOADING_OFF_JOBS, SET_LOADING_ON_JOBS } from "../action";
 
 const initialState = {
   content: null,
+  isLoadongJ: false,
 };
 
 const jobsReducer = (state = initialState, action) => {
@@ -11,16 +12,16 @@ const jobsReducer = (state = initialState, action) => {
         ...state,
         content: action.payload,
       };
-    // case SET_LOADING_ON:
-    //   return {
-    //     ...state,
-    //     isLoading: true,
-    //   };
-    // case SET_LOADING_OFF:
-    //   return {
-    //     ...state,
-    //     isLoading: false,
-    //   };
+    case SET_LOADING_ON_JOBS:
+      return {
+        ...state,
+        isLoadingJ: true,
+      };
+    case SET_LOADING_OFF_JOBS:
+      return {
+        ...state,
+        isLoadingJ: false,
+      };
     default:
       return state;
   }

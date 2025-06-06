@@ -9,6 +9,13 @@ const LinkedinJobsPage = () => {
   //   const [jobs, setJobs] = useState([]);
   //   const [loading, setLoading] = useState(true);
   const jobs = useSelector((state) => state.jobs.content);
+  const loading = useSelector((state) => {
+    return state.jobs.isLoadingJ;
+  });
+  const error = useSelector((state) => {
+    return state.error.errorMessage;
+  });
+
   const dispatch = useDispatch();
 
   const API_JOBS = "https://strive-benchmark.herokuapp.com/api/jobs?limit=5";
@@ -77,28 +84,28 @@ const LinkedinJobsPage = () => {
           <div className="card-body">
             <h5 className="card-title">Le principali offerte di lavoro per te</h5>
             <p className="text-muted small">In base al tuo profilo, preferenze e attività come candidature, ricerche e salvataggi</p>
-            {/* {loading ? (
-            <div>Caricamento offerte…</div>
-          ) : ( */}
-            <>
-              {jobs.map((job) => (
-                <div className="mb-4 border-bottom pb-3" key={job._id}>
-                  <div className="d-flex justify-content-between">
-                    <div>
-                      <h6 className="mb-1 text-primary">{job.title}</h6>
-                      <small className="text-muted">
-                        {job.company_name} · {job.candidate_required_location}
-                      </small>
-                      <div className="mt-1 small text-muted">Promosso · Candidatura semplice</div>
-                    </div>
-                    <div>
-                      <button className="btn btn-sm btn-outline-secondary">✕</button>
+            {loading ? (
+              <div>Caricamento offerte…</div>
+            ) : (
+              <>
+                {jobs.map((job) => (
+                  <div className="mb-4 border-bottom pb-3" key={job._id}>
+                    <div className="d-flex justify-content-between">
+                      <div>
+                        <h6 className="mb-1 text-primary">{job.title}</h6>
+                        <small className="text-muted">
+                          {job.company_name} · {job.candidate_required_location}
+                        </small>
+                        <div className="mt-1 small text-muted">Promosso · Candidatura semplice</div>
+                      </div>
+                      <div>
+                        <button className="btn btn-sm btn-outline-secondary">✕</button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </>
-            {/* )} */}
+                ))}
+              </>
+            )}
             {/* Pulsante "Cerca altre offerte" */}
             <div className="text-center">
               <button className="btn btn-outline-primary">Cerca altre offerte di lavoro →</button>
