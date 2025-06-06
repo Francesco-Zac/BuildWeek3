@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { Button, Col, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserAction } from "../redux/action";
+import { useNavigate } from "react-router";
 
 const Sidebar = () => {
   const [errorFriends, setErrorFriends] = useState(null);
@@ -19,7 +20,7 @@ const Sidebar = () => {
     return state.error.errorMessage;
   });
 
-  //use params con react router
+  const navigate = useNavigate();
 
   const API_BASE = "https://striveschool-api.herokuapp.com/api/profile";
   const TOKEN =
@@ -79,6 +80,10 @@ const Sidebar = () => {
     );
   }
 
+  const handlePageChange = (userID) => {
+    navigate(`/profileFriend/${userID}`);
+  };
+
   if (!profile) return null;
 
   const initials = `${profile.name?.charAt(0) || ""}${profile.surname?.charAt(0) || ""}`.toUpperCase();
@@ -98,9 +103,10 @@ const Sidebar = () => {
             <div className="d-flex justify-content-between">
               <h4>Profilo pubblico e URL</h4>
               <i className="bi bi-pencil"></i>
-              {/* da modificare */}
             </div>
-            <p className="text-start">link preso da param</p>
+            <p className="text-start">
+              {profile.name} {profile.surname}
+            </p>
           </div>
         </div>
         <div className="cards">
@@ -125,7 +131,12 @@ const Sidebar = () => {
                   )}
                   <div className="d-flex flex-column ms-2">
                     {/* da collegare per nuove pagine profilo */}
-                    <a className="custom-h2">
+                    <a
+                      onClick={() => {
+                        handlePageChange(friend._id);
+                      }}
+                      className="custom-h2"
+                    >
                       {friend.name} {friend.surname}
                     </a>
                     <p>{friend.title}</p>

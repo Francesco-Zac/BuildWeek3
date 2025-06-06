@@ -10,6 +10,7 @@ import JobsPage from "./pages/Jobs.jsx";
 import Home from "./pages/Home";
 
 import "./App.css";
+import ProfileFriend from "./pages/ProfileFriend.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<MainSection />} />
           <Route path="/jobs" element={<JobsPage />} />
+          <Route path="/profileFriend/:userID" element={<ProfileFriend />} />;
         </Routes>
       </div>
       <div className="d-none">
