@@ -6,15 +6,10 @@ export const HAS_ERROR_OFF = "HAS_ERROR_OFF";
 export const SET_ERROR_MESSAGE = "SET_ERROR_MESSAGE";
 export const SET_JOBS = "SET_JOBS";
 
-export const setJobsArray = (endpoint, TOKEN) => {
+export const setJobsArray = (endpoint) => {
   return async (dispatch, getState) => {
     try {
-      const response = await fetch(endpoint, {
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(endpoint);
 
       if (!response.ok) {
         console.log("error");
