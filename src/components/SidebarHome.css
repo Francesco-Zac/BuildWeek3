@@ -1,0 +1,17 @@
+.sidebar-home {
+  width: 25%;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.sticky-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+@media (min-width: 992px) {
+  .sidebar-home {
+    display: block;
+  }
+}

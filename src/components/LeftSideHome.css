@@ -1,0 +1,109 @@
+.left-side-home {
+  padding: 20px;
+}
+
+.cards-left-side-home {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.left-side-cover-header {
+  height: 70px;
+}
+
+.left-side-profile-pic-header {
+  height: 70px;
+  width: 70px;
+  left: 14px;
+  bottom: -35px;
+}
+
+.left-side-profile-name {
+  font-size: 20px;
+}
+
+.left-side-profile-headline {
+  font-size: 12px;
+}
+
+.left-side-profile-location {
+  font-size: 12px;
+}
+
+.left-side-profile-info {
+  padding: 36px 16px 0px 16px;
+}
+
+.left-side-profile-card {
+  margin-bottom: 0;
+  height: 227px;
+}
+
+.analytics-left-side-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+.analytics-left-side-p {
+  color: #000;
+  font-weight: 500;
+}
+
+.analytics-left-side-span {
+  margin-left: 5rem;
+  color: blue;
+  font-size: 12px;
+}
+
+.obj-left-side-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.obj-left-side-p {
+  font-weight: 500;
+  color: #000;
+}
+
+.icons-div-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+.icons-div {
+  display: flex;
+}
+
+.icons-div p {
+  color: #000;
+}
+
+.borislav {
+  align-items: start !important;
+}
+
+.pinocchio {
+  background-color: green;
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+}
+
+.online {
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+}

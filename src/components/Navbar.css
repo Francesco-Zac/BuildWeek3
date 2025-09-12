@@ -1,0 +1,172 @@
+/* Icone SVG grigie come default */
+svg {
+  color: grey;
+}
+
+/* Navbar fissa, responsive e con ombra */
+.navbar {
+  height: 65px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown stile business */
+.dropdown-menu {
+  min-width: 264px;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+.responsive-alert {
+  display: none;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Responsive generale */
+@media (max-width: 1200px) {
+  .navbar {
+    height: 80px;
+  }
+
+  .form-control {
+    width: 120px !important;
+  }
+
+  .navbar .text-center svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .navbar .text-center p {
+    font-size: 10px;
+  }
+
+  .gap-4 {
+    gap: 1rem !important;
+  }
+
+  .gap-2 {
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-control {
+    width: 140px !important;
+    
+  }
+
+  .search-wrapper .form-control {
+    display: none;
+  }
+
+  .search-wrapper i {
+    display: block !important;
+    font-size: 1.2rem;
+  }
+
+  .navbar .text-center p {
+    display: none;
+  }
+
+  .navbar .text-center svg {
+    width: 20px;
+    height: 20px;
+    
+  }
+
+  #businessDropdown {
+    display: none !important;
+  }
+
+  .navbar .text-center {
+    flex: 1 1 33%;
+    text-align: center;
+    
+  }
+
+  .dropdown .btn,
+  .dropdown .btn-link {
+    font-size: 0.75rem;
+  }
+  .navbar .linea {
+    display: none !important;
+  }
+  .dropdown-item {
+    display: none !important;
+  }
+  .gap-4 {
+    gap: 0.9rem !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .navbar .text-center {
+    flex: 1 1 45%;
+    
+    
+  }
+
+ 
+
+  .gap-4 {
+    gap: 0.7rem !important;
+  }
+
+  .gap-2 {
+    gap: 0.25rem !important;
+  }
+  .navbar .text-center svg {
+    width: 15px;
+    height: 15px;
+  }
+  .mercado-match {
+    display: none !important;
+  }
+
+  .navbar .linea {
+    display: none !important;
+  }
+
+  .dropdown-item {
+    display: none !important;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+
+@media (max-width: 350px){
+   .responsive-alert {
+    display: block;
+    width: 20rem;
+    margin-left: 7px;
+    animation: slideDown 0.5s ease;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

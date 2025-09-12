@@ -66,28 +66,27 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  background: white;
-  border: 1px solid #666;
+  background: transparent;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #666;
+  color: #667;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .edit-btn:hover {
-  background-color: #f3f2ef;
-  border-color: #0a66c2;
-  color: #0a66c2;
+  background-color: #8d8d8c;
+  border: none;
 }
 
 /* Profile Info */
 .profile-info {
   padding: 60px 24px 24px 24px;
+  position: relative;
 }
 
 .profile-name {
@@ -505,4 +504,30 @@
   .profile-info {
     padding: 40px 12px 12px 12px;
   }
+}
+
+.bi-pencil {
+  margin: 0;
+}
+
+.bi-play-btn-fill {
+  color: green;
+}
+
+.bi-card-image {
+  color: #00aaff;
+}
+
+.bi-layout-text-window-reverse {
+  color: #ff7200;
+}
+
+.icons {
+  font-size: 18px;
+}
+
+.icons:hover {
+  background-color: rgba(128, 128, 128, 0.339);
+  border-radius: 15%;
+  cursor: pointer;
 }
